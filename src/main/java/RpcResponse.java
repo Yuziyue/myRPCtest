@@ -4,6 +4,8 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 @Data
 @NoArgsConstructor
+
+//服务器调用完RpcRequest方法后需要给客户端返回信息
 public class RpcResponse<T> implements Serializable {
     /**
      * 响应状态码
@@ -18,6 +20,7 @@ public class RpcResponse<T> implements Serializable {
      */
     private T data;
 
+    //返回信息封装成RpcResponse对象作为返回
     public static <T> RpcResponse<T> success(T data) {
         RpcResponse<T> response = new RpcResponse<>();
         response.setStatusCode(ResponseCode.SUCCESS.getCode());

@@ -10,6 +10,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
 
+//这里向工作线程WorkerThread传入了socket和服务实例service，
+// WorkerThread实现了Runnable接口，用于接收来自客户端的RpcRequest对象，
+// 利用反射机制完成调用处理，生成RpcResponse对象，通过Socket返回给客户端
 public class WorkerThread extends Thread {
 
     private static final Logger logger = LoggerFactory.getLogger(WorkerThread.class);
