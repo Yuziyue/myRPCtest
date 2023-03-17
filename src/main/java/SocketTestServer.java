@@ -1,4 +1,4 @@
-public class TestServer {
+public class SocketTestServer {
     public static void main(String[] args) {
         HelloService helloService = new HelloServiceImpl();
 //        RpcServer rpcServer = new RpcServer();
@@ -10,9 +10,9 @@ public class TestServer {
         //注册服务对象到服务容器中
         serviceRegistry.register(helloService);
         //将服务容器纳入到服务端
-        RpcServer rpcServer = new RpcServer(serviceRegistry);
+        SocketServer socketServer = new SocketServer(serviceRegistry);
         //启动服务端
-        rpcServer.start(9000);
+        socketServer.start(9000);
     }
 }
 
